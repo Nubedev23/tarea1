@@ -5,10 +5,12 @@ const biblioteca = [
     {id:1, nombre: "Persuasión", precio:8990, autor: "Jane Austen" },
     {id:2, nombre: "Diez Negritos", precio:12990, autor: "Agatha Christie"},
     {id:3, nombre: "Estudio en escarlata", precio:7900, autor: "Arthur Conan Doyle" },
-    {id:4, nombre: "Harry Potter y la Cámara de los secretos", precio:14500, autor: "J. K. Rowling"}
+    {id:4, nombre: "Harry Potter y la Cámara de los secretos", precio:14500, autor: "J. K. Rowling"},
+    {id:5, nombre: "Orgullo y Prejuicio", precio:9990, autor: "Jane Austen" },
+    {id:6, nombre: "Harry Potter y la Piedra Filosofal", precio:13500, autor: "J. K. Rowling"}
 ];
 
-let nombre = prompt(` ${nombrePersona}, Ingresa el nombre del libro que buscas o escribe ESC para salir`);
+let nombre = prompt(` ${nombrePersona}, Ingresa el nombre del libro que buscas ejemplo: Orgullo y Prejuicio. O escribe ESC para salir`);
 
 while(nombre!="ESC"){
 const book = biblioteca.find((item) => (item.nombre).toLowerCase() === nombre.toLowerCase());
@@ -18,7 +20,7 @@ if (book){
     Nombre: ${book.nombre}
     Precio: $${book.precio}`;
 alert(mensaje);
-let region = parseInt(prompt("Ingresa el número de la región donde vives: 1 para Santiago o 2 otra region del país"));
+let region = parseInt(prompt(` ${nombrePersona}, ingresa el número de la región donde vives: 1 para Santiago o 2 otra region del país`));
 envio(region, book.precio, book.nombre);
 function envio(region, precio, nombre){
             const suma  = (a,b) => a + b;
