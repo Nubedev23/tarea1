@@ -12,9 +12,16 @@
   <body>
     <!--navBar-->
     <div class="nav-container">
-      <nav class="navbar">
-          <h1 class="navbar-logo" >Librería Online</h1>
-          <h1 class="ver-carrito" id="verCarrito">🛒</h1>
+      <nav class="navbar navbar-dark bg-primary">
+          <div class="container-fluid">
+            <h1 class="navbar-logo" >Librería Online</h1>
+            
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+            <h1 class="ver-carrito btn btn-lg" id="verCarrito">🛒</h1>
+          </div>
       </nav>
     </div>
 

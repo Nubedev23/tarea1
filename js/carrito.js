@@ -9,7 +9,7 @@ const pintarCarrito = () => {
     modalContainer.append(modalHeader);
     const modalbutton = document.createElement("h1");
     modalbutton.innerText = "x";
-    modalbutton.className = "modal-header-button";
+    modalbutton.className = "btn btn-outline-danger";
 
     modalbutton.addEventListener("click", () => {
         modalContainer.style.display = "none";
@@ -29,7 +29,7 @@ const pintarCarrito = () => {
 
         let eliminar = document.createElement("span");
         eliminar.innerText = "❌";
-        eliminar.classList = "delet-product";
+        eliminar.classList = "delet-product btn btn-outline-primary";
         carritoContent.append(eliminar);
 
         eliminar.addEventListener("click", eliminarProducto);
