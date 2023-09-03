@@ -2,7 +2,7 @@ const pintarCarrito = () => {
     modalContainer.innerHTML ="";
     modalContainer.style.display = "flex";
     const modalHeader = document.createElement("div");
-    modalHeader.className = "modal-header";
+    modalHeader.classList = "modal-header";
     modalHeader.innerHTML = `
     <h1 class = "modal-header">Carrito</h1>
     `;
@@ -21,7 +21,7 @@ const pintarCarrito = () => {
         let carritoContent= document.createElement("div");
         carritoContent.className ="modal-body";
         carritoContent.innerHTML = `
-        <img src="${product.img}">
+        <img src="${product.img}" class="img-thumbnail imagenes">
         <h3>${product.titulo}</h3>
         <p>$${product.precio}</p>
         `;
@@ -37,7 +37,7 @@ const pintarCarrito = () => {
     });
     const total = carrito.reduce((acumulador, el) => acumulador + el.precio, 0);
     const totalBuying = document.createElement("div");
-    totalBuying.className = "total-content";
+    totalBuying.className = "modal-footer";
     totalBuying.innerHTML = `
     total a pagar: $${total}
     

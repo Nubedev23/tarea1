@@ -16,7 +16,7 @@ productos.forEach((product) => {
     content4.className ="card-body";
     content4.innerHTML = `
         <h5 class="card-title">${product.titulo}</h5>
-        <img src ="${product.img}" class="img-fluid rounded-start">
+        <img src ="${product.img}" class="img-fluid imagenes">
         <p class="card-text"> $${product.precio}</p>
         `;
     shopContent.append(content4);
