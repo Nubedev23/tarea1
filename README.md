@@ -1,7 +1,7 @@
-# tarea1
-- Se agregó un carrito para colocar los libros en él cuando se hace click en el botón comprar
-- Si se hace click en el carrito del nav aparece el carrito abajo al final de la página con el total de la compra al lado derecho del carrito
-- Cuando aparece abajo el carrito tiene un botón para cerrarlo pero queda guardado en localStorage si uno va arriba al carrito y lo abre de nuevo aparecerá abajo si es que hay libros. 
-- Para quitar los libros del carrito hay que hacer click en la x que cada libro tiene
-- Falta arreglar el CSS
-- Falta implementar la función de búsqueda e implementar el envío
+# Libros a tu alcance
+- Esta tienda de libros online tiene:
+- Para agregar libros al carrito se hace click en agregar al carrito.
+- Si se hace click más de una vez aumenta la cantidad de libros que lleva al carrito.
+- Al hacer click en la barra de navegación en donde dice carrito abre un modal con el carrito y los libros que contiene, se pueden quitar, se puede cerrar el carrito, o se puede comprar.
+- Si se cierra el carrito queda guardado en localstorage su contenido.
+- Al comprar se eliminan todos los libros del carrito.
