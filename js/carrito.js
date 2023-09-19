@@ -9,7 +9,7 @@ const mirarCarrito = () => {
     `;
     modalContainer.append(modalHeader);
     const modalbutton = document.createElement("h1");
-    modalbutton.innerText = "x";
+    modalbutton.innerText = "Cerrar";
     modalbutton.className = " btn btn-outline-danger";
 
     modalbutton.addEventListener("click", () => {
@@ -25,8 +25,7 @@ const mirarCarrito = () => {
         <img src="${books.img}" class="img-thumbnail imagenes">
         <h3>${books.titulo}</h3>
         <p>$${books.precio}</p>
-        <span class="sumar"> + </span>
-        <p>$${books.cantidad}</p>
+        <p>Cantidad: ${books.cantidad}</p>
         <p>Total: $${books.cantidad * books.precio }</p>
         <span class="delete-product btn btn-outline-primary"> ❌ </span>
         `;
@@ -49,7 +48,7 @@ const mirarCarrito = () => {
     const comprarButton = document.createElement("div");
     comprarButton.innerText = "Comprar";
     comprarButton.id = "botcomprar"
-    comprarButton.className = " btn btn-primary";
+    comprarButton.className = "btn btn-primary btn-block";
     modalContainer.append(totalBuying);
     modalContainer.append(comprarButton);
     const botonComprar = document.getElementById('botcomprar');
@@ -64,6 +63,7 @@ const mirarCarrito = () => {
         });
         carrito = [];
         modalContainer.innerHTML ="";
+        modalContainer.style.display = "none";
         localStorage.clear();
         
     };

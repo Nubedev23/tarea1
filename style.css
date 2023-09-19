@@ -6,3 +6,12 @@ body {
     max-width: 30%;
     max-height: 30%;
 }
+.modal {
+   
+    background-color: pink;
+
+ }
+ #botcomprar{
+    height: 50px;
+    position: auto;
+ }

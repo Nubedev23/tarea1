@@ -1,6 +1,6 @@
 const shopContent = document.getElementById("shopContent");
 const verCarrito = document.getElementById("verCarrito");
-const modalContainer = document.getElementById("modal-container");
+const modalContainer = document.getElementById("modal");
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
