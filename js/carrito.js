@@ -1,4 +1,5 @@
-const pintarCarrito = () => {
+
+const mirarCarrito = () => {
     modalContainer.innerHTML ="";
     modalContainer.style.display = "flex";
     const modalHeader = document.createElement("div");
@@ -17,45 +18,66 @@ const pintarCarrito = () => {
 
     modalHeader.append(modalbutton);
 
-    carrito.forEach((product) => {
+    carrito.forEach((books) => {
         let carritoContent= document.createElement("div");
         carritoContent.className ="modal-body";
         carritoContent.innerHTML = `
-        <img src="${product.img}" class="img-thumbnail imagenes">
-        <h3>${product.titulo}</h3>
-        <p>$${product.precio}</p>
+        <img src="${books.img}" class="img-thumbnail imagenes">
+        <h3>${books.titulo}</h3>
+        <p>$${books.precio}</p>
+        <span class="sumar"> + </span>
+        <p>$${books.cantidad}</p>
+        <p>Total: $${books.cantidad * books.precio }</p>
+        <span class="delete-product btn btn-outline-primary"> ❌ </span>
         `;
         modalContainer.append(carritoContent);
 
-        let eliminar = document.createElement("span");
-        eliminar.innerText = "❌";
-        eliminar.classList = "delet-product btn btn-outline-primary";
-        carritoContent.append(eliminar);
 
-        eliminar.addEventListener("click", eliminarProducto);
+        let eliminar = carritoContent.querySelector(".delete-product");
+        eliminar.addEventListener("click", () => {
+            eliminarLibro(books.id);
+        });
 
     });
-    const total = carrito.reduce((acumulador, el) => acumulador + el.precio, 0);
+    const total = carrito.reduce((acumulador, otro) => acumulador + otro.precio * otro.cantidad, 0);
     const totalBuying = document.createElement("div");
-    totalBuying.className = "modal-footer";
+    totalBuying.className = "total-content modal-footer";
     totalBuying.innerHTML = `
     total a pagar: $${total}
     
     `
+    const comprarButton = document.createElement("div");
+    comprarButton.innerText = "Comprar";
+    comprarButton.id = "botcomprar"
+    comprarButton.className = " btn btn-primary";
     modalContainer.append(totalBuying);
+    modalContainer.append(comprarButton);
+    const botonComprar = document.getElementById('botcomprar');
+    botonComprar.addEventListener('click', botonComprarClick);
+    function botonComprarClick(){
+        
+        swal( {
+            title: "¡Gracias por tu compra!",
+            text: "Vuelve pronto :D",
+            icon: "success",
+            button: "Ok"
+        });
+        carrito = [];
+        modalContainer.innerHTML ="";
+        localStorage.clear();
+        
+    };
+
 };
 
-verCarrito.addEventListener("click", pintarCarrito);
+verCarrito.addEventListener("click", mirarCarrito);
 
 
-const eliminarProducto = () => {
-    const foundId = carrito.find((element) => element.id);
+const eliminarLibro = (id) => {
+    const foundId = carrito.find((element) => element.id === id);
     carrito = carrito.filter((carritoId) => {
         return carritoId !== foundId;
     });
-    pintarCarrito();
+    mirarCarrito();
 };
 
-const saveLocal = () => {
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-};
