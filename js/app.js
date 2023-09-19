@@ -27,21 +27,19 @@ const getLibros = async () => {
         comprar.addEventListener("click", () => {
 
             const repeat = carrito.some((repeatBook) => repeatBook.id === books.id);
-            if(repeat){
-                carrito.map((product) =>{
+            repeat ? 
+            carrito.map((product) =>{
                     if(product.id === books.id){
                         product.cantidad++;
-                    }
-                })
-            } else { 
-                carrito.push({
+                    }})
+            :     
+            carrito.push({
                     id: books.id,
                     img: books.img,
                     titulo: books.titulo,
                     precio: books.precio,
                     cantidad: books.cantidad
-                });
-            }
+            });
             saveLocal();
         });
     

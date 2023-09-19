@@ -79,5 +79,6 @@ const eliminarLibro = (id) => {
         return carritoId !== foundId;
     });
     mirarCarrito();
+    saveLocal();
 };
 
